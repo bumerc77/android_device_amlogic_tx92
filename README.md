@@ -1,0 +1,6 @@
+TX92 TV-BOX
+Soc - Amlogic S912
+LPDDR3 (792MHZ) / 3G
+WiFi + BT - QCA9377
+ETH 1000M
+VFD-Display

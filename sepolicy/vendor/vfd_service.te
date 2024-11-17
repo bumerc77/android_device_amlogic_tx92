@@ -1,0 +1,41 @@
+# VFDService daemon
+
+type vfd_service, domain;
+type vfd_service_exec, vendor_file_type, exec_type, file_type;
+type vfd_service_tmpfs, fs_type;
+
+init_daemon_domain(vfd_service)
+tmpfs_domain(vfd_service)
+
+allow init vfd_service:process transition;
+allow init vfd_service:process { siginh rlimitinh };
+allow init vfd_service_exec:file { read getattr map execute open };
+
+allow vfd_service vfd_service_exec:file { read getattr map execute entrypoint open };
+
+allow vfd_service vfd_service_tmpfs:file { read write getattr map };
+allow vfd_service vfd_service_tmpfs:dir { getattr search };
+
+# allow vfd_service self:netlink_kobject_uevent_socket { create setopt getopt bind read };
+# allow vfd_service vfd_service:netlink_kobject_uevent_socket { read };
+
+allow vfd_service tmpfs:dir { getattr search };
+
+allow vfd_service sysfs:file { read open };
+
+allow vfd_service sysfs_thermal:dir search;
+allow vfd_service sysfs_switch:dir search;
+allow vfd_service sysfs_thermal:file { read open };
+
+allow logd vfd_service:dir search;
+allow logd vfd_service:file { open read};
+
+allow vfd_service sysfs_devices_system_cpu:file { read open getattr };
+allow vfd_service proc_cpuinfo:file { read open getattr };
+ 
+allow vfd_service device:chr_file { read write open ioctl };
+allow vfd_service sysfs:lnk_file read;
+
+allow vfd_service sysfs_net:dir search;
+
+dontaudit init vfd_service:process noatsecure;

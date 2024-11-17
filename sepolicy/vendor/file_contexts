@@ -1,0 +1,5 @@
+# Bluetooth USB
+/dev/ttyUSB.*		u:object_r:radio_device:s0
+
+# YAopenVFD
+/vendor/bin/YAopenvfD		u:object_r:vfd_service_exec:s0

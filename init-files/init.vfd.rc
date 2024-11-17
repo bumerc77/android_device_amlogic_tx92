@@ -1,0 +1,17 @@
+on boot
+    insmod /vendor/lib/modules/openvfd.ko
+    chmod 744 /dev/openvfd
+    chmod 666 /sys/class/leds/openvfd/brightness
+    chmod 666 /sys/class/leds/openvfd/led_cmd
+    chmod 666 /sys/class/leds/openvfd/led_on
+    chmod 666 /sys/class/leds/openvfd/led_off
+    chmod 666 /sys/class/leds/openvfd/max_brightness
+
+on property:dev.bootcomplete=1    
+    start vfd_service
+
+service vfd_service /vendor/bin/YAopenvfD 0:date:24h
+    class main
+    user root
+    group root
+    oneshot

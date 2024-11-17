@@ -1,0 +1,2 @@
+on boot
+    insmod /vendor/lib/modules/qca9377.ko country_code=CN

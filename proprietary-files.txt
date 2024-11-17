@@ -1,0 +1,12 @@
+# Keylayout
+vendor/usr/keylayout//Vendor_0001_Product_0001.kl
+
+# Wifi
+vendor/etc/wifi/qca9377/otp30.bin
+vendor/etc/wifi/qca9377/bdwlan30.bin
+vendor/etc/wifi/qca9377/qwlan30.bin
+vendor/etc/wifi/qca9377/wlan/qcom_cfg.ini
+
+# Bluetooth
+vendor/etc/bluetooth/qca9377/ar3k/nvm_tlv_tf_1.1.bin
+vendor/etc/bluetooth/qca9377/ar3k/rampatch_tlv_tf_1.1.tlv
